@@ -101,8 +101,9 @@ _.mixin({
       var defer;
 
       if (useJSONP) {
-        defer = $.jsonp({
-          url: proxyPrefix + encodeURI(app.options.dataPath + d + '.json')
+        defer = $.ajax({
+          url: proxyPrefix + encodeURI(app.options.dataPath + d + '.json'),
+          dataType: 'jsonp'
         });
       }
       else {

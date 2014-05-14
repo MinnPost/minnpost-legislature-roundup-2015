@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         '<%= grunt.template.today("yyyy-mm-dd") + "\\n" %>' +
         '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */' + 
+        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */' +
         '<%= "\\n\\n" %>'
     },
     data_embed: {
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         src: ['css/style.ie.css'], dest: 'dist/<%= pkg.name %>.latest.ie.css'
       },
       libs: {
-        src: ['components/jquery/jquery.min.js', 'components/jquery-jsonp/src/jquery.jsonp.js', 'components/underscore/underscore-min.js', 'components/backbone/backbone-min.js', 'components/raphael/raphael-min.js'],
+        src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/underscore/underscore.js', 'bower_components/backbone/backbone.js', 'bower_components/raphael/raphael-min.js'],
         dest: 'dist/<%= pkg.name %>.libs.js',
         options: {
           separator: ';\r\n\r\n'
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
       images: {
         files: [
           {
-            cwd: './css/images/',
+            cwd: './images/',
             expand: true,
             filter: 'isFile',
             src: ['*'],
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  
+
   // Load plugin tasks
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -147,14 +147,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-s3');
-  
+
 
   // Custom task to save json data into a JS file for concatentation
   grunt.registerMultiTask('data_embed', 'Make data embeddable', function() {
     var t, file, output;
-    var tasks = this.data; 
+    var tasks = this.data;
     var config = grunt.config.get();
-    
+
     for (t in tasks) {
       file = grunt.file.read(tasks[t][0]);
       output = 'mpApp["' + config.pkg.name + '"].data["' + this.target + '"] = ' + file + ';';
@@ -165,7 +165,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'clean', 'jst', 'concat', 'uglify', 'copy']);
-  
+
   // Deploy tasks
   grunt.registerTask('mp-deploy', ['s3']);
 

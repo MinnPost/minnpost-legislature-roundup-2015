@@ -360,7 +360,7 @@
       }
       else {
         this.collection.reset(filtered);
-        var image = 'https://s3.amazonaws.com/data.minnpost/projects/mn-legislature-roundup-2012/icons/' +
+        var image = app.options.imageDirectory +
           this.getCatIcon(category) + '.png';
         this.showCategory({ category: category, image_url: image });
         this.render();
@@ -478,7 +478,7 @@
         image = false;
       }
       else {
-        image = bubbleChart.image('images/' + billList.getCatIcon(cat.name) + '.png',
+        image = bubbleChart.image(app.options.imageDirectory + billList.getCatIcon(cat.name) + '.png',
           Math.random() * (width - radius), Math.random() * (height - radius),
           radius * 0.9, radius * 0.9)
           .attr('opacity', '0.1')
@@ -537,7 +537,7 @@
     var defers = [];
 
     _.each(categoryIcons, function(c, ci) {
-      var src = 'images/' + c + '.png';
+      var src = app.options.imageDirectory + c + '.png';
       var d = new $.Deferred();
 
       if (c && c !== '') {

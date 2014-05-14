@@ -1,1 +1,3 @@
-sunlight
+scraperwiki
+lxml
+cssselect

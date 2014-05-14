@@ -274,9 +274,8 @@
       // Remove any errors
       this.removeErrors();
 
-      // Geocode address using Mapquest becuase its terms of service are more open,
-      // though its geocoding is not the best.
-      geocodeURL = 'http://www.mapquestapi.com/geocoding/v1/address?key=' +
+      // Geocode address using Mapquest open
+      geocodeURL = 'http://open.mapquestapi.com/geocoding/v1/address?key=' +
         app.options.mapQuestKey +
         '&outFormat=json&callback=?&countrycodes=us&maxResults=1&location=' +
         encodeURI(address);
@@ -627,22 +626,21 @@
     // Get categories
     var i;
     var categories = {};
-    for (i in data) {
-      var c;
-      if (_.isArray(data[i].categories)) {
-        for (c in data[i].categories) {
-          categories[data[i].categories[c]] = categories[data[i].categories[c]] || [];
-          categories[data[i].categories[c]].push(i);
-        }
+
+    _.each(data, function(d, di) {
+      if (_.isArray(d.categories) && d.categories.length > 0) {
+        _.each(d.categories, function(c, ci) {
+          categories[c] = categories[c] || [];
+          categories[c].push(d.bill);
+        });
       }
-    }
+    });
 
     // Create bills collection
     var bills = new Bills();
-    for (i in data) {
-      data[i].bill = i;
-      bills.add(new Bill(data[i]));
-    }
+    _.each(data, function(d, di) {
+      bills.add(new Bill(d));
+    });
 
     // Handle list of bills
     var billList = new BillsListView({ el: app.options.el, collection: bills });

@@ -11,6 +11,7 @@ dist/templates.js
 data/*shp*
 data/*gdb*
 data/*.zip
+scraperwiki.sqlite
 
 # General git ignores
 .sass-cache

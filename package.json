@@ -1,0 +1,41 @@
+{
+  "name": "minnpost-legislature-roundup-2014",
+  "version": "0.0.1",
+  "author": "MinnPost <support@minnpost.com>",
+  "homepage": "https://github.com/MinnPost/minnpost-legislature-roundup-2014",
+  "description": "What was passed or vetoed in the 2014 MN State Legislature",
+  "contributors": [
+    {
+      "name": "Alan Palazzolo",
+      "email": "apalazzolo@minnpost.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MinnPost/minnpost-legislature-roundup-2014.git"
+  },
+  "keywords": [
+    "minnpost"
+  ],
+  "dependencies": {
+    "moment": "2.0.x",
+    "node-rest-client": "0.1.x",
+    "q": "0.9.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-jst": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-s3": "*"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/MinnPost/minnpost-legislature-roundup-2014/blob/master/LICENSE.txt"
+    }
+  ]
+}

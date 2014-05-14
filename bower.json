@@ -1,0 +1,22 @@
+{
+  "name": "minnpost-legislature-roundup-2014",
+  "version": "0.0.0",
+  "main": "index.html",
+  "homepage": "https://github.com/minnpost/minnpost-legislature-roundup-2014",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minnpost/minnpost-legislature-roundup-2014"
+  },
+  "bugs": "https://github.com/minnpost/minnpost-legislature-roundup-2014/issues",
+  "license": "MIT",
+  "author": {
+    "name": "MinnPost",
+    "email": "data@minnpost.com"
+  },
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "raphael": "~2.1.2",
+    "backbone": "~1.1.2",
+    "underscore": "~1.6.0"
+  }
+}

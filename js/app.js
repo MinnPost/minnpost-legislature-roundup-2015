@@ -9,6 +9,7 @@
   // Icon list
   var categoryIcons = {
     'Government': 'noun_project_1761',
+    'Administration': 'noun_project_1761',
     'Energy and Technology': 'noun_project_2075',
     'Housing and Property': 'noun_project_1439',
     'Campaign Finance and Election Issues': 'noun_project_287',

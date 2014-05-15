@@ -349,6 +349,8 @@ def scrape_governor_page(url):
     if tr[1].text_content() in ['', None] and tr[2].text_content() in ['', None] and tr[0].text_content().strip() == '181' and tr[4].text_content().strip() == '4/29/14':
       bill = 'HF 2746'
       chamber = 'house'
+    if bill == 'HF 2847' and tr[4].text_content().strip() == '4/30/14':
+      bill = 'HF 2874'
 
     bill = bill.rstrip('AaBbCcDdEeFf')
 

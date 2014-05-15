@@ -657,7 +657,8 @@
     $('#application-nav, #tab-container').show();
 
     // Show number of bills
-    $('#bill-count-description').html('The legislature passed <strong>' + _.size(bills) + '</strong> bills in the 2014 session.');
+    var count = bills.where({ bill_status: 'signed' }).length;
+    $('#bill-count-description').html('The legislature passed <strong>' + count + '</strong> bills in the 2014 session.');
 
     // Preload images to fix Chrome and Raphael bug
     preloadImages(categories).done(function() {

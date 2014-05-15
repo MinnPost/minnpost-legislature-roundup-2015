@@ -381,8 +381,10 @@
   function visCategories(categories, billList) {
     var height = 650;
     var width = 975;
-    var bubbleMinRadius = 6;
-    var bubbleMaxRadius = 60;
+    var bubbleMinRadius = 3;
+    var bubbleMaxRadius = 65;
+    var bubbleMinArea = Math.PI * bubbleMinRadius * bubbleMinRadius;
+    var bubbleMaxArea = Math.PI * bubbleMaxRadius * bubbleMaxRadius;
     var xBubbleSpacing = 50;
     var yBubbleSpacing = 150;
     var xPos = -50;
@@ -422,9 +424,7 @@
       // Make area proportional given max bills in a category.  This could
       // be a lot more elegant and efficient.
       var percentage = cat.bills.length / maxBills;
-      var maxArea = bubbleMaxRadius * bubbleMaxRadius * Math.PI;
-      var minArea = bubbleMaxRadius * bubbleMinRadius * Math.PI;
-      var thisArea = (percentage * (maxArea - minArea)) + minArea;
+      var thisArea = (percentage * (bubbleMaxArea - bubbleMinArea)) + bubbleMinArea;
       var radius = Math.sqrt(thisArea / Math.PI);
       var color = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
 
@@ -458,14 +458,15 @@
       circle.animate(enlarge.delay(Math.random() * 1000));
 
       // Text for each bubble, attaching data for spreading.
+      var catText = cat.name + ' (' + cat.bills.length + ')'
       var text = bubbleChart.text(circle.attrs.cx, circle.attrs.cy)
         .attr('font-size', 12)
         .attr('fill', '#444')
         .attr('cursor', 'pointer')
         .data('spreadX', xPos)
         .data('spreadY', yPos + 20)
-        .data('name', cat.name);
-      text = wrapText(cat.name, text);
+        .data('name', catText);
+      text = wrapText(catText, text);
 
       // Create image for for the bubble.  A slight offset
       // on spread for centering.

@@ -458,7 +458,7 @@
       circle.animate(enlarge.delay(Math.random() * 1000));
 
       // Text for each bubble, attaching data for spreading.
-      var catText = cat.name + ' (' + cat.bills.length + ')'
+      var catText = cat.name + ' (' + cat.bills.length + ')';
       var text = bubbleChart.text(circle.attrs.cx, circle.attrs.cy)
         .attr('font-size', 12)
         .attr('fill', '#444')

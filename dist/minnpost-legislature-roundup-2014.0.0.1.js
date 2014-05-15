@@ -722,8 +722,8 @@ return __p
     var xPos = -50;
     var yPos = 165;
     var bubbleColors = ['156DAC', '1571A6', '1575A0', '15799A', '157D94', '15828E', '158688', '158A82', '158E7D', '159277', '159771', '159B6B', '159F65', '15A35F', '15A759', '15AC54'];
-    var customColors = { 'Vetoed': '323232', 'Controversial': 'E31C2D' };
-    var customSorts = { 'Vetoed': -1, 'Controversial': -2 };
+    var customColors = { 'Vetoed': '323232', 'Controversial': 'E31C2D', 'Uncategorized': 'E3D21C' };
+    var customSorts = { 'Vetoed': -1, 'Controversial': -2, 'Uncategorized': -3 };
     var reordered = [];
 
     // Find the max number in a category
@@ -960,6 +960,7 @@ return __p
     // Get categories
     var i;
     var categories = {};
+    var noCat = 'Uncategorized';
 
     _.each(data, function(d, di) {
       if (_.isArray(d.categories) && d.categories.length > 0) {
@@ -967,6 +968,12 @@ return __p
           categories[c] = categories[c] || [];
           categories[c].push(d.bill);
         });
+      }
+      // Handle no categories
+      else {
+        data[di].categories = [noCat];
+        categories[noCat] = categories[noCat] || [];
+        categories[noCat].push(d.bill);
       }
     });
 
@@ -982,6 +989,10 @@ return __p
     // Done loading
     $('.loading-temp').fadeOut();
     $('#application-nav, #tab-container').show();
+
+    // Show number of bills
+    var count = bills.where({ bill_status: 'signed' }).length;
+    $('#bill-count-description').html('The legislature passed <strong>' + count + '</strong> bills in the 2014 session.');
 
     // Preload images to fix Chrome and Raphael bug
     preloadImages(categories).done(function() {

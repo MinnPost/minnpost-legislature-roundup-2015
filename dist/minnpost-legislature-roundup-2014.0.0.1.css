@@ -9,7 +9,7 @@
 .clear {
   clear: both;
 }
-      
+
 .footnote {
   font-size: .75em;
   font-style: italic;
@@ -69,6 +69,13 @@
  * Bubbles
  */
 
+#bill-count-description {
+  margin-top: 3em;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
 /**
  * Loading
  */
@@ -86,7 +93,8 @@
 #minnpost-legislature-wrapper {
   margin: auto;
   width: 100%;
-} 
+  padding-top: 2em;
+}
 #bill-category-container {
   width: 100%;
 }
@@ -198,7 +206,7 @@
 #bill-detail-container .bill-status {
   float: right;
   text-transform: uppercase;
-  margin: 0 0 2em .5em; 
+  margin: 0 0 2em .5em;
   font-size: 1em;
   padding: .5em 1.5em;
   background-color: #EBEBEB;
@@ -379,11 +387,11 @@
   #bill-detail-container {
     width: 75%;
   }
-  
+
   #address-chooser-form .address-radio {
     clear: left;
   }
-  
+
   #address-chooser-form {
     padding: 3em 1em;
   }
@@ -414,7 +422,7 @@
   #bill-detail-container .session-start {
     display: none;
   }
-  
+
   #bill-detail-container .bill-house,
   #bill-detail-container .bill-senate {
     float: none;

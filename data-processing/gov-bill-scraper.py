@@ -330,9 +330,6 @@ def scrape_governor_page(url):
 
   # Chapter  House File  Senate File  Description  Presented  Signed  Vetoed  Filed w/o Signature
   for tr in root.cssselect('table.table_legislation tbody tr'):
-    # Ensure that we have a number
-    if tr[1].text_content() in ['', None] and tr[2].text_content() in ['', None]:
-      continue
 
     # Look for house or senate
     if tr[1].text_content():
@@ -349,6 +346,10 @@ def scrape_governor_page(url):
     if bill == 'HF 340':
       bill = 'SF 340'
       chamber = 'senate'
+    if tr[1].text_content() in ['', None] and tr[2].text_content() in ['', None] and tr[0].text_content().strip() == '181' and tr[4].text_content().strip() == '4/29/14':
+      bill = 'HF 2746'
+      chamber = 'house'
+
     bill = bill.rstrip('AaBbCcDdEeFf')
 
     # Check if veto has link
@@ -367,8 +368,13 @@ def scrape_governor_page(url):
       'signed_no_signature': bool(tr[7].text_content().strip() != '-' or not tr[7].text_content().strip()),
       'veto_link': veto_link
     }
+
+    # Assume signed if not vetoed
     data['bill_status'] = 'vetoed' if data['vetoed'] and data['veto_link'] in [None, [], ''] else 'signed'
-    data['bill_status'] = 'partially vetoed' if data['vetoed'] and not data['veto_link'] in [None, [], ''] else 'signed'
+    # Pending if presented, not signed and not vetoed
+    data['bill_status'] = 'pending' if data['presented'] not in [None, [], ''] and not data['signed'] and not data['vetoed'] else data['bill_status']
+    # Partial veto if there is a link
+    data['bill_status'] = 'partially vetoed' if data['vetoed'] and not data['veto_link'] in [None, [], ''] else data['bill_status']
 
     data = get_votes(data)
     data = get_os_bill(data)
@@ -379,7 +385,8 @@ def scrape_governor_page(url):
 
 # Save data
 def save_data():
-  print json.dumps(bills_list, sort_keys = True, indent = 2)
+  #print json.dumps(bills_list, sort_keys = True, indent = 2)
+  print 'Found %s bills.' % (len(bills_list))
 
   with open(output_file, 'w') as out:
     json.dump(bills_list, out)

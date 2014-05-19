@@ -305,9 +305,10 @@
             var names = [];
             var chamber = (type == 'representative') ? 'lower' : 'upper';
 
-            // Find relevant names
+            // Find relevant names.
+            // data[d].level == 'state' does not seem to be there anymore
             for (d in data) {
-              if (data[d].active && data[d].level == 'state' && data[d].chamber == chamber) {
+              if (data[d].active && data[d].chamber == chamber) {
                 names.push(data[d].full_name);
               }
             }

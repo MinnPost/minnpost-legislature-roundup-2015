@@ -1,18 +1,22 @@
 {
-  "name": "minnpost-legislature-roundup-2014",
+  "name": "minnpost-legislature-roundup-2015",
   "version": "0.0.1",
   "author": "MinnPost <support@minnpost.com>",
-  "homepage": "https://github.com/MinnPost/minnpost-legislature-roundup-2014",
-  "description": "What was passed or vetoed in the 2014 MN State Legislature",
+  "homepage": "https://github.com/MinnPost/minnpost-legislature-roundup-2015",
+  "description": "What was passed or vetoed in the 2015 MN State Legislature",
   "contributors": [
     {
       "name": "Alan Palazzolo",
       "email": "apalazzolo@minnpost.com"
+    },
+    {
+      "name": "Tom Nehil",
+      "email": "tnehil@minnpost.com"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/MinnPost/minnpost-legislature-roundup-2014.git"
+    "url": "https://github.com/MinnPost/minnpost-legislature-roundup-2015.git"
   },
   "keywords": [
     "minnpost"
@@ -35,7 +39,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/MinnPost/minnpost-legislature-roundup-2014/blob/master/LICENSE.txt"
+      "url": "https://github.com/MinnPost/minnpost-legislature-roundup-2015/blob/master/LICENSE.txt"
     }
   ]
 }

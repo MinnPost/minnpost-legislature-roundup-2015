@@ -661,7 +661,7 @@
 
     // Show number of bills
     var count = bills.where({ bill_status: 'signed' }).length;
-    $('#bill-count-description').html('The legislature passed <strong>' + count + '</strong> bills in the 2014 session.');
+    $('#bill-count-description').html('The legislature passed <strong>' + count + '</strong> bills in the 2015 session.');
 
     // Preload images to fix Chrome and Raphael bug
     preloadImages(categories).done(function() {
@@ -730,4 +730,4 @@
       billsProcess(data);
     });
   };
-})(mpApp['minnpost-legislature-roundup-2014'], jQuery);
+})(mpApp['minnpost-legislature-roundup-2015'], jQuery);

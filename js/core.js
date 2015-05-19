@@ -7,7 +7,7 @@
  * like templates.
  */
 var mpApp = mpApp || {};
-mpApp['minnpost-legislature-roundup-2014'] = mpApp['minnpost-legislature-roundup-2014'] || {};
+mpApp['minnpost-legislature-roundup-2015'] = mpApp['minnpost-legislature-roundup-2015'] || {};
 
 /**
  * Extend underscore
@@ -115,4 +115,4 @@ _.mixin({
 
     return $.when.apply($, defers);
   };
-})(mpApp['minnpost-legislature-roundup-2014'], jQuery);
+})(mpApp['minnpost-legislature-roundup-2015'], jQuery);

@@ -264,10 +264,16 @@ def get_leg(leg_id):
   try:
     url = os_leg_url % (urllib.quote(leg_id), open_states_key)
     os_data = json.loads(scraperwiki.scrape(url))
-  except e:
-    print url
-    print os_data
-    print e
+  except Exception as inst:
+    #print url
+    #print os_data
+    print type(inst)
+    print inst.args
+    print inst
+    os_data = {}
+    os_data['full_name'] = "" #One bill so far Revisor has "by request" as an
+                              #author, which obviously OS can't find.
+
 
   # Not good but how it was originally
   #leg_list[leg_id] = {
@@ -278,9 +284,9 @@ def get_leg(leg_id):
   #}
   leg_list[leg_id] = []
   leg_list[leg_id].append(os_data['full_name'])
-  leg_list[leg_id].append(os_data['party'] if 'party' in os_data else None)
-  leg_list[leg_id].append(os_data['photo_url'] if 'photo_url' in os_data else None)
-  leg_list[leg_id].append(os_data['url'] if 'url' in os_data else None)
+  leg_list[leg_id].append(os_data['party'] if 'party' in os_data else '')
+  leg_list[leg_id].append(os_data['photo_url'] if 'photo_url' in os_data else '')
+  leg_list[leg_id].append(os_data['url'] if 'url' in os_data else '')
 
   return leg_list[leg_id]
 

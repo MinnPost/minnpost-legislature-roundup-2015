@@ -222,7 +222,7 @@ def get_next(root):
 # Get votes
 def get_votes(data):
   vote_action_re = re.compile('(passed)(.*)(vote)(.*[^0-9])([0-9]+\-[0-9]+)', re.I | re.M | re.S)
-  url = 'https://www.revisor.mn.gov/bills/bill.php?b=' + urllib.quote_plus(data['chamber']) + '&f=' + urllib.quote_plus(data['bill']) + '&ssn=0&y=2013'
+  url = 'https://www.revisor.mn.gov/bills/bill.php?b=' + urllib.quote_plus(data['chamber']) + '&f=' + urllib.quote_plus(data['bill']) + '&ssn=0&y=2015'
   html = scraperwiki.scrape(url)
   root = lxml.html.fromstring(html)
 
@@ -345,18 +345,19 @@ def scrape_governor_page(url):
       bill = 'SF ' + tr[2].text_content()
       chamber = 'senate'
 
+    #COMMENTING OUT all these hacks since they probably don't apply to 2015
     # For some reason, data is missing or wrong
-    if tr[0].text_content().strip() == '18' and tr[4].text_content().strip() == '4/19/13':
-      bill = 'HF 75'
-      chamber = 'house'
-    if bill == 'HF 340':
-      bill = 'SF 340'
-      chamber = 'senate'
-    if tr[1].text_content() in ['', None] and tr[2].text_content() in ['', None] and tr[0].text_content().strip() == '181' and tr[4].text_content().strip() == '4/29/14':
-      bill = 'HF 2746'
-      chamber = 'house'
-    if bill == 'HF 2847' and tr[4].text_content().strip() == '4/30/14':
-      bill = 'HF 2874'
+    #if tr[0].text_content().strip() == '18' and tr[4].text_content().strip() == '4/19/13':
+    #  bill = 'HF 75'
+    #  chamber = 'house'
+    #if bill == 'HF 340':
+    #  bill = 'SF 340'
+    #  chamber = 'senate'
+    #if tr[1].text_content() in ['', None] and tr[2].text_content() in ['', None] and tr[0].text_content().strip() == '181' and tr[4].text_content().strip() == '4/29/14':
+    #  bill = 'HF 2746'
+    #  chamber = 'house'
+    #if bill == 'HF 2847' and tr[4].text_content().strip() == '4/30/14':
+    #  bill = 'HF 2874'
 
     bill = bill.rstrip('AaBbCcDdEeFf')
 

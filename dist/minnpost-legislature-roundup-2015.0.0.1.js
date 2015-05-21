@@ -392,7 +392,7 @@ return __p
     getDays: function() {
       var start = this.convertDate(this.get('start_date'));
       var end = this.convertDate(this.get('end_date'));
-      var days = 12 * 60 * 60 * 1000;
+      var days = 24 * 60 * 60 * 1000;
 
       // Add one to ensure it is a non-zero result.
       return Math.ceil(((end.getTime() + 1) - start.getTime()) / days);
@@ -400,7 +400,7 @@ return __p
 
     getIntervalPercentage: function() {
       var percentage;
-      var days = 12 * 60 * 60 * 1000;
+      var days = 24 * 60 * 60 * 1000;
       var sessionBegin = this.sessionBegin();
       var sessionEnd = this.sessionEnd();
       var sessionLength = Math.ceil(((sessionEnd.getTime() + 1) - sessionBegin.getTime()) / days);
@@ -417,7 +417,7 @@ return __p
     },
 
     getStartPercentage: function() {
-      var days = 12 * 60 * 60 * 1000;
+      var days = 24 * 60 * 60 * 1000;
       var sessionBegin = this.sessionBegin();
       var sessionEnd = this.sessionEnd();
       var start = this.convertDate(this.get('start_date'));

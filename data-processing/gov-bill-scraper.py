@@ -305,11 +305,8 @@ def get_os_bill(data):
   data['title'] = os_data['title']
   data['billurl'] = os_data['sources'][0]['url']
   data['end_date'] = os_data['action_dates']['last']
+  data['start_date'] = os_data['action_dates']['first']
 
-  # Get introduced data
-  for a in os_data['actions']:
-    if a['type'][0] == 'bill:introduced':
-      data['start_date'] = a['date']
 
   # Categories
   data['categories'] = make_categories(os_data['+scraped_subjects'])

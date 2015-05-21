@@ -284,9 +284,9 @@ def get_leg(leg_id):
   #}
   leg_list[leg_id] = []
   leg_list[leg_id].append(os_data['full_name'])
-  leg_list[leg_id].append(os_data['party'] if 'party' in os_data else '')
-  leg_list[leg_id].append(os_data['photo_url'] if 'photo_url' in os_data else '')
-  leg_list[leg_id].append(os_data['url'] if 'url' in os_data else '')
+  leg_list[leg_id].append(os_data['party'] if 'party' in os_data else None)
+  leg_list[leg_id].append(os_data['photo_url'] if 'photo_url' in os_data else None)
+  leg_list[leg_id].append(os_data['url'] if 'url' in os_data else None)
 
   return leg_list[leg_id]
 

@@ -660,7 +660,7 @@
     $('#application-nav, #tab-container').show();
 
     // Show number of bills
-    var count = bills.where({ bill_status: 'signed' }).length;
+    var count = bills.length;
     $('#bill-count-description').html('The legislature passed <strong>' + count + '</strong> bills in the 2015 session.');
 
     // Preload images to fix Chrome and Raphael bug

@@ -10,7 +10,7 @@ import json
 
 # Be nice and don't steal
 open_states_key = '1e1c9b31bf15440aacafe4125f221bf2'
-os_bill_url = 'http://openstates.org/api/v1/bills/MN/2013-2014/%s/?apikey=%s'
+os_bill_url = 'http://openstates.org/api/v1/bills/MN/2015-2016/%s/?apikey=%s'
 os_leg_url = 'http://openstates.org/api/v1/legislators/%s/?apikey=%s'
 gov_url = 'http://mn.gov/governor/resources/legislation/'
 bills_list = []

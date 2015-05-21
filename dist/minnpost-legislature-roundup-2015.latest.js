@@ -163,9 +163,9 @@ __p += '</span>\n    <br /><br />\n    <em><a target="_blank" href="' +
 ((__t = ( bill.get('billurl') )) == null ? '' : __t) +
 '">View bill status and details</a>, <a href="https://www.revisor.mn.gov/bills/status_description.php?f=' +
 ((__t = ( bill.get('bill').replace(' ', '') )) == null ? '' : __t) +
-'&ssn=0&y=2014" target="_blank">full description</a>, and <a href="https://www.revisor.mn.gov/bills/text.php?number=' +
+'&ssn=0&y=2015" target="_blank">full description</a>, and <a href="https://www.revisor.mn.gov/bills/text.php?number=' +
 ((__t = ( bill.get('bill').replace(' ', '') )) == null ? '' : __t) +
-'&session=ls88&session_year=2014&session_number=0" target="_blank">current version</a>.</em>\n    ';
+'&session=ls89&session_year=2015&session_number=0" target="_blank">current version</a>.</em>\n    ';
  if (bill.get('notes')) { ;
 __p += '\n      <em><span class="bill-notes">' +
 ((__t = ( bill.get('notes') )) == null ? '' : __t) +
@@ -994,7 +994,7 @@ return __p
     $('#application-nav, #tab-container').show();
 
     // Show number of bills
-    var count = bills.where({ bill_status: 'signed' }).length;
+    var count = bills.length;
     $('#bill-count-description').html('The legislature passed <strong>' + count + '</strong> bills in the 2015 session.');
 
     // Preload images to fix Chrome and Raphael bug

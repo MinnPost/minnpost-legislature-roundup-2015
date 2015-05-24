@@ -378,11 +378,12 @@ def scrape_governor_page(url):
     }
 
     # Assume signed if not vetoed
-    data['bill_status'] = 'vetoed' if data['vetoed'] and data['veto_link'] in [None, [], ''] else 'signed'
+    data['bill_status'] = 'vetoed' if data['vetoed'] else 'signed'
     # Pending if presented, not signed and not vetoed
     data['bill_status'] = 'pending' if data['presented'] not in [None, [], ''] and not data['signed'] and not data['vetoed'] else data['bill_status']
     # Partial veto if there is a link
-    data['bill_status'] = 'partially vetoed' if data['vetoed'] and not data['veto_link'] in [None, [], ''] else data['bill_status']
+    # Actually there's no such thing as a partial veto?
+    #data['bill_status'] = 'partially vetoed' if data['vetoed'] and not data['veto_link'] in [None, [], ''] else data['bill_status']
 
     data = get_votes(data)
     data = get_os_bill(data)

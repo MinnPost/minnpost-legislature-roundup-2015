@@ -387,6 +387,10 @@ def scrape_governor_page(url):
 
     data = get_votes(data)
     data = get_os_bill(data)
+
+    if data['vetoed']:
+        data['categories'].append('Vetoed')
+
     bills_list.append(data)
 
   return next_found

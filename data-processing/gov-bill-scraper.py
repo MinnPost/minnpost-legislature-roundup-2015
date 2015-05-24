@@ -355,6 +355,8 @@ def scrape_governor_page(url):
     #  chamber = 'house'
     #if bill == 'HF 2847' and tr[4].text_content().strip() == '4/30/14':
     #  bill = 'HF 2874'
+    if 'SF 1697' in bill:
+        bill = 'SF 1679' #they put the wrong bill number in the table
 
     bill = bill.rstrip('AaBbCcDdEeFf')
 

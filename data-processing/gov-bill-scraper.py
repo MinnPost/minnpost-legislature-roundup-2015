@@ -324,6 +324,19 @@ def get_os_bill(data):
 
   return data
 
+#Change date formats from governor page to match OS date formats
+def make_gov_date(date):
+    date_components = date.split("/")
+    month = date_components[0]
+    if len(month) < 2:
+        month = "0" + month
+    day = date_components[1]
+    if len(day) < 2:
+        day = "0" + day
+    year = "20" + date_components[2]
+
+    return year + "-" + month + "-" + day + " 00:00:00"
+
 
 # Get data from governor's page
 def scrape_governor_page(url):
@@ -397,6 +410,17 @@ def scrape_governor_page(url):
 
     if data['vetoed']:
         data['categories'].append('Vetoed')
+
+    #use the governor's site for end dates as this is more reliable than OS
+    if data['signed']:
+        data['end_date'] = make_gov_date(tr[5].text_content().strip())
+
+    elif data['vetoed']:
+        data['end_date'] = make_gov_date(tr[6].text_content().strip())
+
+    elif data['signed_no_signature']:
+        data['end_date'] = make_gov_date(tr[7].text_content().strip())
+
 
     bills_list.append(data)
 

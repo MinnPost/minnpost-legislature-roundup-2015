@@ -222,7 +222,7 @@ def get_next(root):
 
 # Get votes
 def get_votes(data):
-  vote_action_re = re.compile('(passed)(.*)(vote)(.*[^0-9])([0-9]+\-[0-9]+)', re.I | re.M | re.S)
+  vote_action_re = re.compile('(.*)(vote)(.*[^0-9])([0-9]+\-[0-9]+)', re.I | re.M | re.S)
   url = 'https://www.revisor.mn.gov/bills/bill.php?b=' + urllib.quote_plus(data['chamber']) + '&f=' + urllib.quote_plus(data['bill']) + '&ssn=0&y=2015'
   html = scraperwiki.scrape(url)
   root = lxml.html.fromstring(html)
@@ -230,14 +230,14 @@ def get_votes(data):
   # House votes
   for tr in root.cssselect('.house table.actions tr'):
     if vote_action_re.search(tr[1].text_content()):
-      data['house_vote'] = vote_action_re.search(tr[1].text_content()).groups()[4]
+      data['house_vote'] = vote_action_re.search(tr[1].text_content()).groups()[3]
       data['house_ayes'] = int(data['house_vote'].split('-')[0])
       data['house_nays'] = int(data['house_vote'].split('-')[1])
 
   # Senate votes
   for tr in root.cssselect('.senate table.actions tr'):
     if vote_action_re.search(tr[1].text_content()):
-      data['senate_vote'] = vote_action_re.search(tr[1].text_content()).groups()[4]
+      data['senate_vote'] = vote_action_re.search(tr[1].text_content()).groups()[3]
       data['senate_ayes'] = int(data['senate_vote'].split('-')[0])
       data['senate_nays'] = int(data['senate_vote'].split('-')[1])
 

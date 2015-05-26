@@ -8,7 +8,7 @@ This application is based on previous versions:
 
 ## Data
 
-* Bills are listed on the [Governor's site](http://mn.gov/governor/resources/legislation/).
+* Bills are listed on the [Revisor's site](https://www.revisor.mn.gov/laws/?view=session&year=2015&type=0).
 * [Open States API](http://sunlightlabs.github.io/openstates-api/).
 * MN Revisor
 

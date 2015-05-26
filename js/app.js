@@ -472,27 +472,22 @@
 
       // Create image for for the bubble.  A slight offset
       // on spread for centering.
-      //
-      // Images don't seem to work in Chrome.  This is a recent bug and
-      // can't seem to find a way around this
-      var image;
-      if (isChrome) {
-        image = false;
-      }
-      else {
-        image = bubbleChart.image(app.options.imageDirectory + billList.getCatIcon(cat.name) + '.png',
-          Math.random() * (width - radius), Math.random() * (height - radius),
-          radius * 0.9, radius * 0.9)
-          .attr('opacity', '0.1')
-          .attr('cursor', 'pointer')
-          .data('spreadX', xPos - (radius * 0.5) + 1)
-          .data('spreadY', yPos - (radius * 1.5) + 1)
-          .data('name', cat.name);
 
-        // Fade in image
-        var fadeIn = Raphael.animation({'opacity': '0.6'}, 1000, 'easeIn');
-        image.animate(fadeIn.delay(Math.random() * 1000));
-      }
+      var image;
+
+      image = bubbleChart.image(app.options.imageDirectory + billList.getCatIcon(cat.name) + '.png',
+        Math.random() * (width - radius), Math.random() * (height - radius),
+        radius * 0.9, radius * 0.9)
+        .attr('opacity', '0.1')
+        .attr('cursor', 'pointer')
+        .data('spreadX', xPos - (radius * 0.5) + 1)
+        .data('spreadY', yPos - (radius * 1.5) + 1)
+        .data('name', cat.name);
+
+      // Fade in image
+      var fadeIn = Raphael.animation({'opacity': '0.6'}, 1000, 'easeIn');
+      image.animate(fadeIn.delay(Math.random() * 1000));
+
 
       // Create set for handling events.
       settingIt(bubbleChart, billList, circle, image, text);

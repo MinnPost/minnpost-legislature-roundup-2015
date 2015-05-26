@@ -806,9 +806,7 @@ return __p
 
       // Create image for for the bubble.  A slight offset
       // on spread for centering.
-      //
-      // Images don't seem to work in Chrome.  This is a recent bug and
-      // can't seem to find a way around this
+
       var image;
 
       image = bubbleChart.image(app.options.imageDirectory + billList.getCatIcon(cat.name) + '.png',

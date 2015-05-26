@@ -387,7 +387,8 @@ def scrape_revisor_page(url):
       'signed': True,
       'vetoed': False,
       'signed_no_signature': False,
-      'veto_link': veto_link
+      'veto_link': veto_link,
+      'bill_status': 'signed'
     }
 
     # Handle vetoes

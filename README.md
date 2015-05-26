@@ -1,8 +1,14 @@
-Minnesota state legislative roundup.  The goal of this project is to create a visualization that explores the bills of the MN State Legislative Session 88 (2014).
+Minnesota state legislative roundup.  The goal of this project is to create a visualization that explores the bills of the MN State Legislative Session 89 (2015).
+
+This application is based on previous versions:
+
+ - [2014](https://github.com/MinnPost/minnpost-legislature-roundup-2014)
+ - [2013](https://github.com/MinnPost/minnpost-legislature-roundup-2013)
+ - [2012](https://github.com/MinnPost/minnpost-legislature-roundup-2012)
 
 ## Data
 
-* Vetoed bills are listed on the [Governor's site](http://mn.gov/governor/resources/legislation/).
+* Bills are listed on the [Governor's site](http://mn.gov/governor/resources/legislation/).
 * [Open States API](http://sunlightlabs.github.io/openstates-api/).
 * MN Revisor
 

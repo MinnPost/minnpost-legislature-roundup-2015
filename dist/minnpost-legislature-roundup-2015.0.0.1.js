@@ -726,7 +726,7 @@ return __p
     var xPos = -50;
     var yPos = 165;
     var bubbleColors = ['156DAC', '1571A6', '1575A0', '15799A', '157D94', '15828E', '158688', '158A82', '158E7D', '159277', '159771', '159B6B', '159F65', '15A35F', '15A759', '15AC54'];
-    var customColors = { 'Vetoed': '323232', 'Controversial': 'E31C2D', 'Uncategorized': 'E3D21C' };
+    var customColors = { 'Vetoed': 'C83D2D', 'Controversial': 'E31C2D', 'Uncategorized': 'E3D21C' };
     var customSorts = { 'Vetoed': -1, 'Controversial': -2, 'Uncategorized': -3 };
     var reordered = [];
 

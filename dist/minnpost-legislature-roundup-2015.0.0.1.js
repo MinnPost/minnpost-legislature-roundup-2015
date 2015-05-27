@@ -722,10 +722,7 @@ return __p
   // Visualize categories with a bubble layout.
   function visCategories(categories, billList) {
     var width = $(window).width()*0.7;
-    var height = 800;
-    if (width < 500) {
-      height = width*15;
-    }
+    var height = 18/(width/150)*230; //18 is number of cats -- this should be set programatically
     var bubbleMinRadius = 3;
     var bubbleMaxRadius = 65;
     var bubbleMinArea = Math.PI * bubbleMinRadius * bubbleMinRadius;

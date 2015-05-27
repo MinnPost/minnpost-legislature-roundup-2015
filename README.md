@@ -16,7 +16,7 @@ This application is based on previous versions:
 
 Scraper can be run with the following.  It will write to `data/bills.json`.
 
-    `python data-processing/gov-bill-scraper.py`
+    `python data-processing/revisor-bill-scraper.py`
 
 ## Install
 

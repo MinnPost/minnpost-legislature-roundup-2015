@@ -9,6 +9,10 @@
     <% if (bill.get('notes')) { %>
       <em><span class="bill-notes"><%= bill.get('notes') %></span></em>
     <% } %>
+    <% if (bill.get('vetoed')) { %>
+      <br /><br />
+      <em><span class="veto-info">Read the governor’s <a href="<%= bill.get('veto_link') %>" target="_blank">veto letter</a> [PDF].</span></em>
+    <% } %>
   </p>
 
 

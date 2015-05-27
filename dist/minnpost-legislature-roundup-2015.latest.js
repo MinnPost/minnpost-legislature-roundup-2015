@@ -171,6 +171,12 @@ __p += '\n      <em><span class="bill-notes">' +
 ((__t = ( bill.get('notes') )) == null ? '' : __t) +
 '</span></em>\n    ';
  } ;
+__p += '\n    ';
+ if (bill.get('vetoed')) { ;
+__p += '\n      <br /><br />\n      <em><span class="veto-info">Read the governor’s <a href="' +
+((__t = ( bill.get('veto_link') )) == null ? '' : __t) +
+'" target="_blank">veto letter</a> [PDF].</span></em>\n    ';
+ } ;
 __p += '\n  </p>\n\n\n  ';
  if (typeof bill.get('start_date') != 'undefined' && (bill.getDays() != NaN || bill.getDays() != 'NaN')) { ;
 __p += '\n    <div class="bill-timeline">\n      ';

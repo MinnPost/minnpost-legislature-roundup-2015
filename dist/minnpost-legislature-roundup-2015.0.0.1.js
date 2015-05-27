@@ -722,7 +722,7 @@ return __p
   // Visualize categories with a bubble layout.
   function visCategories(categories, billList) {
     var width = $(window).width()*0.7;
-    var height = 600;
+    var height = 800;
     if (width < 500) {
       height = width*15;
     }

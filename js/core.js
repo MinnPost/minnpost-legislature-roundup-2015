@@ -85,7 +85,7 @@ _.mixin({
    */
   app.data = app.data || {};
   app.getData = function(name) {
-    var proxyPrefix = 'http://mp-jsonproxy.herokuapp.com/proxy?callback=?&url=';
+    var proxyPrefix = 'https://mp-jsonproxy.herokuapp.com/proxy?callback=?&url=';
     var useJSONP = false;
     var defers = [];
 
